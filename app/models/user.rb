@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token
-    self.session_token || new_session_token
+    self.session_token ||= new_session_token
   end
 
   def ensure_session_token_uniqueness
