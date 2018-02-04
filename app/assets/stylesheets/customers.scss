@@ -1,0 +1,25 @@
+$blue: #07386b;
+$font-blue: #1f4160;
+$font-grey: #859cb7;
+$font-blue: #1f4160;
+
+.customer-index-container {
+  padding: 20px;
+
+  h2 {
+    color: $font-grey;
+    font-size: 22px;
+    margin-left: 20px;
+  }
+
+  .customer-item {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+
+    h3 {
+      color: $font-blue;
+      font-size: 16px;
+    }
+  }
+}
