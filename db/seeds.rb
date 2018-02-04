@@ -9,6 +9,7 @@
 ActiveRecord::Base.transaction do
   User.destroy_all
   Customer.destroy_all
+  Usage.destroy_all
 
   User.create!(name: "User1", role: "Sales", password: "password")
   User.create!(name: "User2", role: "Finance", password: "password")
@@ -17,7 +18,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer1",
-    billing_address: "1 appian way, Redmond , Washington",
+    billing_address: "1 Appian Way, Redmond, Washington",
     billing_email: "ap@customer1.com",
     monthly_api_limit: 100000,
     overage_unit_cost: 0.1,
@@ -27,7 +28,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer2",
-    billing_address: "2 appian way, Redmond , Washington",
+    billing_address: "2 Appian Way, Redmond, Washington",
     billing_email: "ap@customer2.com",
     monthly_api_limit: 200000,
     overage_unit_cost: 0.09,
@@ -37,7 +38,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer3",
-    billing_address: "3 appian way, Redmond , Washington",
+    billing_address: "3 Appian Way, Redmond, Washington",
     billing_email: "ap@customer3.com",
     monthly_api_limit: 300000,
     overage_unit_cost: 0.08,
@@ -47,7 +48,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer4",
-    billing_address: "4 appian way, Redmond , Washington",
+    billing_address: "4 Appian Way, Redmond, Washington",
     billing_email: "ap@customer4.com",
     monthly_api_limit: 400000,
     overage_unit_cost: 0.07,
@@ -57,7 +58,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer5",
-    billing_address: "5 appian way, Redmond , Washington",
+    billing_address: "5 Appian Way, Redmond, Washington",
     billing_email: "ap@customer5.com",
     monthly_api_limit: 500000,
     overage_unit_cost: 0.06,
@@ -67,7 +68,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer6",
-    billing_address: "6 appian way, Redmond , Washington",
+    billing_address: "6 Appian Way, Redmond, Washington",
     billing_email: "ap@customer6.com",
     monthly_api_limit: 600000,
     overage_unit_cost: 0.05,
@@ -77,7 +78,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer7",
-    billing_address: "7 appian way, Redmond , Washington",
+    billing_address: "7 Appian Way, Redmond, Washington",
     billing_email: "ap@customer7.com",
     monthly_api_limit: 700000,
     overage_unit_cost: 0.04,
@@ -87,7 +88,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer8",
-    billing_address: "8 appian way, Redmond , Washington",
+    billing_address: "8 Appian Way, Redmond, Washington",
     billing_email: "ap@customer8.com",
     monthly_api_limit: 800000,
     overage_unit_cost: 0.03,
@@ -97,7 +98,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer9",
-    billing_address: "9 appian way, Redmond , Washington",
+    billing_address: "9 Appian Way, Redmond, Washington",
     billing_email: "ap@customer9.com",
     monthly_api_limit: 900000,
     overage_unit_cost: 0.02,
@@ -107,7 +108,7 @@ ActiveRecord::Base.transaction do
 
   Customer.create!(
     name: "Customer10",
-    billing_address: "10 appian way, Redmond , Washington",
+    billing_address: "10 Appian Way, Redmond, Washington",
     billing_email: "ap@customer10.com",
     monthly_api_limit: 1000000,
     overage_unit_cost: 0.01,
@@ -115,4 +116,76 @@ ActiveRecord::Base.transaction do
     require_csm_approval: false
   )
 
+
+  usage_data = [
+    [
+      24000,
+      45000,
+      450000,
+      650000,
+      400000,
+      360000,
+      0,
+      234000,
+      25000,
+      320000,
+      425000,
+      360000
+    ],
+    [
+      350000,
+      250000,
+      450000,
+      10000,
+      800000,
+      700000,
+      0,
+      356000,
+      28000,
+      230000,
+      300000,
+      450000
+    ],
+    [
+      350000,
+      250000,
+      450000,
+      10000,
+      800000,
+      700000,
+      0,
+      356000,
+      340000,
+      230000,
+      567000,
+      790000
+    ],
+    [
+      350000,
+      345000,
+      450000,
+      10000,
+      800000,
+      700000,
+      0,
+      356000,
+      28000,
+      230000,
+      300000,
+      450000
+    ]
+  ]
+
+  4.times do |i|
+    customer_id = Customer.find_by(name: "Customer#{i+1}").id
+
+    12.times do |j|
+      Usage.create!(
+        customer_id: customer_id,
+        month: j,
+        year: 2017,
+        api_usage: usage_data[i][j]
+      )
+    end
+  end
 end
