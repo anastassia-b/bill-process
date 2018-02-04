@@ -3,7 +3,6 @@ import SessionContainer from './session/session_container';
 
 const App = () => (
   <main className="main">
-    Welcome
     <SessionContainer />
   </main>
 );
