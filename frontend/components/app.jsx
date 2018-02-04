@@ -4,12 +4,13 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import SessionContainer from './session/session_container';
 import NavBarContainer from './navbar/container';
-import NavBar from './navbar/navbar';
+import Dashboard from './dashboard/dashboard';
 
 const App = () => (
   <main>
     <AuthRoute path="/" component={SessionContainer} />
     <ProtectedRoute path="/dashboard" component={NavBarContainer} />
+    <ProtectedRoute path="/dashboard" component={Dashboard} />
   </main>
 );
 
