@@ -75,11 +75,29 @@ A bill's overage_unit cost by default will be a customer's overage_unit_cost, bu
 
 #### Customer
 
+* `GET /api/customers`
 * `GET /api/customers/:customerId`
-* `POST /api/customers`
-* `PATCH /api/customers/:customerId`
 
 #### Usage
 
+* `GET /api/usage` (pass customerId, etc as parameters)
 
 #### Bill
+* `GET /api/bills`
+* `GET /api/bills/:billId`
+* `POST /api/bills/`
+* `PATCH /api/bills/:billId`
+
+### Frontend Routes
+
+* `/welcome` - Login and Signup Page
+* `/` - Main Dashboard with Overage Bill Index
+* `/bill/:id` - Bill Show Page
+* `/customers` - Customer Index
+* `/customers/:id` - Customer Show Page with Usage
+
+
+### Future Implementation
+* Error handling
+* Testing
+* Customer show page with usage graph
