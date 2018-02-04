@@ -6,13 +6,12 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="navbar-container">
         <div className="nav-left">
         </div>
         <div className="nav-right">
-          <p>Welcome, {this.props.currentUser.name}</p>
+          <p>{this.props.currentUser.name} - {this.props.currentUser.role}</p>
           <button onClick={this.props.logout}>Logout</button>
         </div>
       </div>
