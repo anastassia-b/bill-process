@@ -4,5 +4,4 @@ class Usage < ApplicationRecord
     foreign_key: :customer_id,
     class_name: 'Customer'
 
-
 end

@@ -1,0 +1,2 @@
+module Api::UsagesHelper
+end
