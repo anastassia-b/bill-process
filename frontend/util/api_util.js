@@ -27,3 +27,17 @@ export const fetchUser = id => (
       url: `/api/users/${id}`,
   })
 );
+
+export const fetchCustomers = () => (
+  $.ajax({
+      method: 'GET',
+      url: `/api/customers/`,
+  })
+);
+
+export const fetchCustomer = (id) => (
+  $.ajax({
+      method: 'GET',
+      url: `/api/customers/${id}`,
+  })
+);
