@@ -1,3 +1,97 @@
-main {
-  
+$background-grey: #f7f8fa;
+$border-grey: #cbd1d8;
+$font-blue: #1f4160;
+$green: #47b881;
+
+body {
+  background-color: $background-grey;
+
+.main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .session-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    // height: 50vh;
+    border-radius: 4px;
+    border: 1px solid $border-grey;
+    padding: 30px 0px;
+    color: $font-blue;
+    font-size: 14px;
+
+    h1 {
+      margin: 0px auto;
+      font-size: 24px;
+      padding-bottom: 20px;
+    }
+
+    .session {
+      display: flex;
+
+      .login {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+
+        .login-form {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .signup {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid $border-grey;
+        padding: 30px;
+
+        .signup-form {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      input {
+        border-radius: 4px;
+        border: 1px solid $border-grey;
+        padding: 10px 16px;
+        margin: 10px 0px;
+      }
+
+      select {
+        border: 1px solid $border-grey;
+        margin: 10px 0px;
+        height: 40px;
+        font-size: 14px;
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+        color: $font-blue;
+        margin: 0px auto;
+        padding-bottom: 20px;
+      }
+
+      button {
+        margin-top: 10px;
+        background-color: $green;
+        color: white;
+        padding: 10px;
+        // height: 36px;
+      }
+
+    }
+
+
+  }
+
+}
 }
