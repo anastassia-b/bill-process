@@ -9,7 +9,12 @@ class NavBar extends React.Component {
     console.log(this.props);
     return (
       <div className="navbar-container">
-        <button onClick={this.props.logout}>Logout!</button>
+        <div className="nav-left">
+        </div>
+        <div className="nav-right">
+          <p>Welcome, {this.props.currentUser.name}</p>
+          <button onClick={this.props.logout}>Logout</button>
+        </div>
       </div>
     );
   }
