@@ -6,7 +6,7 @@ $green: #47b881;
 body {
   background-color: $background-grey;
 
-.main {
+.welcome {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -85,12 +85,9 @@ body {
         background-color: $green;
         color: white;
         padding: 10px;
-        // height: 36px;
       }
 
     }
-
-
   }
 
 }

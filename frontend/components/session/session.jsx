@@ -10,11 +10,13 @@ class Session extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div className="session-container">
-        <h1>Welcome to BillProcess</h1>
-        <div className="session">
-          <Login login={this.props.login} />
-          <Signup signup={this.props.signup} />
+      <div className="welcome">
+        <div className="session-container">
+          <h1>Welcome to BillProcess</h1>
+          <div className="session">
+            <Login login={this.props.login} />
+            <Signup signup={this.props.signup} />
+          </div>
         </div>
       </div>
     );
