@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180203205031) do
+ActiveRecord::Schema.define(version: 20180204202534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "billing_address"
+    t.string "billing_email"
+    t.integer "monthly_api_limit"
+    t.integer "overage_unit_cost"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "require_csm_approval"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
