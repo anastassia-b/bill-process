@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CustomerIndex extends React.Component {
   constructor(props) {
@@ -12,16 +13,18 @@ class CustomerIndex extends React.Component {
   render() {
 
     let customerList = this.props.customers.map(customer => (
-      <ul className="customer-item" key={customer.id}>
-        <li><h3>{customer.name}</h3></li>
-        <li>Billing Address: {customer.billing_address}</li>
-        <li>Billing Email: {customer.billing_email}</li>
-        <li>Monthly Api Limit: {customer.monthly_api_limit}</li>
-        <li>Overage Unit Cost: {customer.overage_unit_cost}</li>
-        <li>Start Date: {customer.start_date}</li>
-        <li>End Date: {customer.end_date}</li>
-        <li>Require CMS Approval: {customer.require_csm_approval}</li>
-      </ul>
+      <Link to={`/customers/${customer.id}`}>
+        <ul className="customer-item" key={customer.id}>
+          <li><h3>{customer.name}</h3></li>
+          <li>Billing Address: {customer.billing_address}</li>
+          <li>Billing Email: {customer.billing_email}</li>
+          <li>Monthly Api Limit: {customer.monthly_api_limit}</li>
+          <li>Overage Unit Cost: {customer.overage_unit_cost}</li>
+          <li>Start Date: {customer.start_date}</li>
+          <li>End Date: {customer.end_date}</li>
+          <li>Require CMS Approval: {customer.require_csm_approval}</li>
+        </ul>
+      </Link>
       )
     );
 

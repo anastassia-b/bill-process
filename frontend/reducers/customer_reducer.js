@@ -8,7 +8,7 @@ const customerReducer = (state = {}, action) => {
     case RECEIVE_CUSTOMERS:
       return action.customers;
     case RECEIVE_CUSTOMER:
-      const newCustomer = {[action.customer.id]: action.customer};
+      const newCustomer = {[action.payload.customer.id]: action.payload.customer};
       return merge({}, state, newCustomer);
     default:
       return state;

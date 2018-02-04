@@ -2,12 +2,14 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import LeftNavContainer from './leftnav/leftnav_container';
 import CustomerIndexContainer from './customers/customer_index_container';
+import CustomerShowContainer from './customers/customer_show_container';
 
 const Dashboard = () => (
   <section className="dashboard-container">
     <LeftNavContainer />
     <div className="dashboard">
-      <Route path="/customers" component={CustomerIndexContainer} />
+      <Route exact path="/customers" component={CustomerIndexContainer} />
+      <Route exact path="/customers/:customerId" component={CustomerShowContainer} />
     </div>
   </section>
 );

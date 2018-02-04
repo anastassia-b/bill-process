@@ -6,6 +6,10 @@ class LeftNav extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="leftnav-container">
@@ -22,14 +26,13 @@ class LeftNav extends React.Component {
         </div>
 
         <div className="links">
-          <Link to={`/customers`}>
-            <h2>Customers</h2>
-          </Link>
+          <Link to={`/customers`}><h2>Customers</h2></Link>
 
           <ul>
-            <li>Customer1</li>
-            <li>Customer2</li>
-            <li>Customer3</li>
+            <li><Link to={`/customers/32`}>Customer1</Link></li>
+            <li><Link to={`/customers/33`}>Customer2</Link></li>
+            <li><Link to={`/customers/34`}>Customer3</Link></li>
+            <li><Link to={`/customers/35`}>Customer4</Link></li>
           </ul>
         </div>
       </div>

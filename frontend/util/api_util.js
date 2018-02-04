@@ -41,3 +41,10 @@ export const fetchCustomer = (id) => (
       url: `/api/customers/${id}`,
   })
 );
+
+export const fetchUsage = (id) => (
+  $.ajax({
+      method: 'GET',
+      url: `/api/customers/${id}/usages`,
+  })
+);
