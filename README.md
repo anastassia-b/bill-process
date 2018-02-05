@@ -57,13 +57,13 @@ updated_at  | datetime |
 
 A bill's overage_unit cost by default will be a customer's overage_unit_cost, but could be altered for flexibility. Therefore, overage_unit_cost is stored in two models.
 
-### Bill History
+### Bill Actions
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 bill_id         | integer   | not null, foreign key (references bills), indexed
 stakeholder_id  | integer   | not null, foreign key (references users), indexed
-new_status      | string    |
+action          | string    |
 comment         | string    |
 created_at      | datetime  | not null
 updated_at      | datetime  | not null
@@ -100,7 +100,10 @@ updated_at      | datetime  | not null
 * `GET /api/bills`
 * `GET /api/bills/:billId`
 * `POST /api/bills/`
-* `PATCH /api/bills/:billId`
+
+### BillActions
+* `GET /api/bills/:billId/billactions`
+* `POST /api/bills/:billId/billactions`
 
 ### Frontend Routes
 
