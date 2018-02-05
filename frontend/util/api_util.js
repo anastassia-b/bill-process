@@ -59,6 +59,6 @@ export const fetchBills = () => (
 export const fetchBill = (id) => (
   $.ajax({
       method: 'GET',
-      url: `/api/bill/${id}`,
+      url: `/api/bills/${id}`,
   })
 );

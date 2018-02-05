@@ -17,7 +17,7 @@ class BillIndex extends React.Component {
         <ul className="customer-item">
           <li><h3>{bill.customer}: ${bill.overage_amount}</h3></li>
           <li>Status: {bill.status}</li>
-          <li>Date: {bill.month} / {bill.year}</li>
+          <li>Time Period: {bill.month} / {bill.year}</li>
           <li>Overage Units: {bill.overage_units}</li>
           <li>Overage Unit Cost: {bill.overage_unit_cost}</li>
         </ul>

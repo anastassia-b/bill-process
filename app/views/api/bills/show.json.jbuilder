@@ -1,6 +1,7 @@
 json.bill do
   json.extract! @bill, :id, :customer_id, :month, :year, :overage_units,
     :overage_unit_cost, :overage_amount, :status, :created_at, :updated_at
+  json.customer @bill.customer.name
 end
 
 json.bill_actions do
@@ -9,6 +10,7 @@ json.bill_actions do
       json.id action.id
       json.bill_id action.bill_id
       json.stakeholder_id action.stakeholder_id
+      json.stakeholder_name action.stakeholder.name
       json.action action.action
       json.comment action.comment
       json.created_at action.created_at
