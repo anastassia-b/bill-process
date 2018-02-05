@@ -14,7 +14,7 @@ const Dashboard = () => (
     <div className="dashboard">
       <FinanceRoute exact path="/dashboard" component={BillFormContainer} />
       <Route exact path="/dashboard" component={BillIndexContainer} />
-      <Route exact path="/bill/:billId" component={BillShowContainer} />
+      <Route exact path="/bills/:billId" component={BillShowContainer} />
       <Route exact path="/customers" component={CustomerIndexContainer} />
       <Route exact path="/customers/:customerId" component={CustomerShowContainer} />
     </div>

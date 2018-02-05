@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CustomerShow extends React.Component {
   constructor(props) {
@@ -39,6 +40,16 @@ class CustomerShow extends React.Component {
       customerDisplay = null;
     }
 
+    let billDisplay = this.props.bills.map((bill) => (
+      <Link to={`/bills/${bill.id}`} key={bill.id}>
+        <ul className="customer-item" >
+          <li>Overage Amount: ${bill.overage_amount}</li>
+          <li>Time Period: {bill.month}/{bill.year}</li>
+          <li>Status: {bill.status}</li>
+        </ul>
+      </Link>
+    ));
+
     let usageDisplay = this.props.usage.map((usage) => (
       <ul className="customer-item" key={usage.id}>
         <li>Time Period: {usage.month}/{usage.year}</li>
@@ -51,6 +62,8 @@ class CustomerShow extends React.Component {
       <div className="customer-index-container">
         <h2>Customer</h2>
           {customerDisplay}
+        <h2>Bills</h2>
+          {billDisplay}
         <h2>Usage</h2>
           {usageDisplay}
       </div>

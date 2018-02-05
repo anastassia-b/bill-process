@@ -18,7 +18,7 @@ class LeftNav extends React.Component {
 
     let billLinkList = bills.map(bill => (
       <li key={bill.id}>
-        <Link to={`/bill/${bill.id}`}>{bill.customer}: ${bill.overage_amount}</Link>
+        <Link to={`/bills/${bill.id}`}>{bill.customer}: ${bill.overage_amount}</Link>
       </li>
     ));
 

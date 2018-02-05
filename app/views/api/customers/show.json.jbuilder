@@ -24,6 +24,7 @@ json.bills do
       json.year bill.year
       json.overage_amount bill.overage_amount
       json.status bill.status
+      json.customer bill.customer.name
     end
   end
 end
