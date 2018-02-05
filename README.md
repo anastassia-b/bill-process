@@ -6,6 +6,7 @@ To run this app locally:
   * `git clone https://github.com/anastassia-b/bill-process.git`
   * `bundle install`
   * `npm install`
+  * `rails db:setup`
   * `rails s`
   * Visit `localhost:3000/#/welcome` in your browser!
 
@@ -25,6 +26,8 @@ email           | string    |
 role            | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
+
+Implemented Roles: "Finance", "Customer Success", "Sales"
 
 ### Customers
 
