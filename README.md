@@ -116,8 +116,8 @@ updated_at      | datetime  | not null
 ### Frontend Routes
 
 * `/welcome` - Login and Signup Page
-* `/` - Main Dashboard with Overage Bill Index
-* `/bill/:id` - Bill Show Page
+* `/dashboard` - Main Dashboard with Overage Bill Index
+* `/bills/:id` - Bill Show Page
 * `/customers` - Customer Index
 * `/customers/:id` - Customer Show Page with Usage
 
@@ -138,3 +138,9 @@ As of Monday, February 5, 2018, 2:47am:
 * Fully functioning implementation in only `12 hours and 5 minutes`!
 
 ![time-breakdown](/app/assets/images/time.png)
+
+### Screenshots
+
+![welcome](/app/assets/images/welcome.png)
+
+![dashboard](/app/assets/images/dashboard.png)
