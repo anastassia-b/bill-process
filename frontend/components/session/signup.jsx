@@ -25,8 +25,6 @@ class Signup extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-
     return (
       <div className="signup">
         <h2>Signup</h2>
