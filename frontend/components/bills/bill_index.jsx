@@ -7,7 +7,8 @@ class BillIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBills();
+    // unnecessary since the nav bar is fetching the bills already
+    // this.props.fetchBills();
   }
 
   render() {

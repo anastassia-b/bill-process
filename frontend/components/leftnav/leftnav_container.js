@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
 import LeftNav from './leftnav';
+import { fetchCustomers } from '../../actions/customer_actions';
+import { fetchBills } from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
-
+  bills: Object.values(state.bills),
+  customers: Object.values(state.customers)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  fetchBills: () => dispatch(fetchBills()),
+  fetchCustomers: () => dispatch(fetchCustomers())
 });
 
 
-export default connect(null, null)(LeftNav);
+export default connect(mapStateToProps, mapDispatchToProps)(LeftNav);

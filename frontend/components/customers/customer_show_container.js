@@ -9,6 +9,7 @@ const selectCustomer = (state, id) => {
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.customerId;
+  // also fetch a customer's bills to display
   return (
     {
       customer: selectCustomer(state, id),

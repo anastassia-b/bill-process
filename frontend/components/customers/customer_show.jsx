@@ -19,7 +19,6 @@ class CustomerShow extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let customer = this.props.customer;
 
     let customerDisplay;

@@ -19,7 +19,6 @@ class BillShow extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let bill = this.props.bill;
     let billActions = this.props.billActions;
 

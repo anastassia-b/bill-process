@@ -7,10 +7,27 @@ class LeftNav extends React.Component {
   }
 
   componentDidMount() {
-
+    this.props.fetchBills();
+    this.props.fetchCustomers();
   }
 
   render() {
+    console.log(this.props);
+    let bills = this.props.bills;
+    let customers = this.props.customers;
+
+    let billLinkList = bills.map(bill => (
+      <li key={bill.id}>
+        <Link to={`/bill/${bill.id}`}>{bill.customer}: ${bill.overage_amount}</Link>
+      </li>
+    ));
+
+    let customerLinkList = customers.map(customer => (
+      <li key={customer.id}>
+        <Link to={`/customers/${customer.id}`}>{customer.name}</Link>
+      </li>
+    ))
+
     return (
       <div className="leftnav-container">
         <div className="links">
@@ -20,19 +37,16 @@ class LeftNav extends React.Component {
         </div>
 
         <div className="links">
-          <Link to={`/dashboard`}>
-            <h2>Bills</h2>
-          </Link>
+          <Link to={`/dashboard`}><h2>Bills</h2></Link>
+            <ul>
+              {billLinkList}
+            </ul>
         </div>
 
         <div className="links">
           <Link to={`/customers`}><h2>Customers</h2></Link>
-
           <ul>
-            <li><Link to={`/customers/32`}>Customer1</Link></li>
-            <li><Link to={`/customers/33`}>Customer2</Link></li>
-            <li><Link to={`/customers/34`}>Customer3</Link></li>
-            <li><Link to={`/customers/35`}>Customer4</Link></li>
+            {customerLinkList}
           </ul>
         </div>
       </div>
