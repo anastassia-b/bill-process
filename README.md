@@ -2,6 +2,18 @@
 
 BillProcess is a full-stack app that lets different internal stakeholders efficiently process monthly customer bills. It is built with Ruby on Rails, PostgreSQL, and React/Redux.
 
+To run this app locally:
+  * `git clone https://github.com/anastassia-b/bill-process.git`
+  * `bundle install`
+  * `npm install`
+  * `rails s`
+  * Visit `localhost:3000/#/welcome` in your browser!
+
+## Features
+* Complete user authentication with BCrypt gem.
+* Multiple Account types (Finance, Customer Success, Sales) allow for specialized permissions and views.
+* Bill tracks the history of actions on it, allowing for documentation and reversibility.
+
 ## Database Schema
 
 ### Users (stakeholders)
@@ -101,10 +113,6 @@ updated_at      | datetime  | not null
 * `GET /api/bills/:billId`
 * `POST /api/bills/`
 
-### BillActions
-* `GET /api/bills/:billId/billactions`
-* `POST /api/bills/:billId/billactions`
-
 ### Frontend Routes
 
 * `/welcome` - Login and Signup Page
@@ -113,8 +121,20 @@ updated_at      | datetime  | not null
 * `/customers` - Customer Index
 * `/customers/:id` - Customer Show Page with Usage
 
+### In Progress
+The following requires only 2-3 more hours to complete:
+
+* Finalize business logic on creating a bill (checking over 3 months, verifying overage calculations).
+* Give Finance users the permission to submit a FINAL bill.
+* Give Customer Success and Sales "APPROVE" and "REJECT" actions.
 
 ### Future Implementation
 * Error handling tied to thunk actions
 * Testing
 * Customer show page with usage graph
+
+### Time Breakdown
+As of Monday, February 5, 2018, 2:47am:
+* Fully functioning implementation in only `12 hours and 5 minutes`!
+
+![time-breakdown](/app/assets/images/time.png)
