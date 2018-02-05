@@ -221,27 +221,27 @@ ActiveRecord::Base.transaction do
   BillAction.create!(
     bill_id: Bill.first.id,
     stakeholder_id: finance_user_id,
-    new_status: "DRAFT"
+    action: "DRAFT"
   )
 
   BillAction.create!(
     bill_id: Bill.first.id,
     stakeholder_id: csm_user_id,
-    new_status: "APPROVE",
+    action: "APPROVE",
     comment: "Customer Success has approved this bill."
   )
 
   BillAction.create!(
     bill_id: Bill.first.id,
     stakeholder_id: sales_user_id,
-    new_status: "APPROVE",
+    action: "APPROVE",
     comment: "Sales has also approved this bill."
   )
 
   BillAction.create!(
     bill_id: Bill.first.id,
     stakeholder_id: finance_user_id,
-    new_status: "SENT"
+    action: "SENT"
   )
 
 end

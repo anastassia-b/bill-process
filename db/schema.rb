@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180205021818) do
   create_table "bill_actions", force: :cascade do |t|
     t.integer "bill_id", null: false
     t.integer "stakeholder_id", null: false
-    t.string "new_status"
+    t.string "action"
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
