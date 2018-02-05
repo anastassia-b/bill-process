@@ -62,3 +62,11 @@ export const fetchBill = (id) => (
       url: `/api/bills/${id}`,
   })
 );
+
+export const createBill = (bill) => (
+  $.ajax({
+      method: 'POST',
+      url: '/api/bills/',
+      data: { bill }
+  })
+);

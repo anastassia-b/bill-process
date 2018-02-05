@@ -24,3 +24,9 @@ export const fetchBill = (id) => dispatch => (
     dispatch(receiveBill(bill))
   ))
 );
+
+export const createBill = (bill) => dispatch => (
+  APIUtil.createBill(bill).then(draftBill => (
+    dispatch(receiveBill(draftBill))
+  ))
+);
