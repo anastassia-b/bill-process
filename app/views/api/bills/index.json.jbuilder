@@ -2,6 +2,7 @@
   json.set! bill.id do
     json.id bill.id
     json.customer_id bill.customer_id
+    json.customer bill.customer.name
     json.month bill.month
     json.year bill.year
     json.overage_units bill.overage_units

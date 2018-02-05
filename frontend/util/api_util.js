@@ -48,3 +48,17 @@ export const fetchUsage = (id) => (
       url: `/api/customers/${id}/usages`,
   })
 );
+
+export const fetchBills = () => (
+  $.ajax({
+      method: 'GET',
+      url: `/api/bills`,
+  })
+);
+
+export const fetchBill = (id) => (
+  $.ajax({
+      method: 'GET',
+      url: `/api/bill/${id}`,
+  })
+);
