@@ -16,6 +16,9 @@ ActiveRecord::Base.transaction do
   User.create!(name: "User3", role: "CustomerSuccess", password: "password")
   User.create!(name: "User4", role: "CustomerSuccess", password: "password")
 
+  csm1_id = User.find_by(name: "User3").id
+  csm2_id = User.find_by(name: "User4").id
+
   Customer.create!(
     name: "Customer1",
     billing_address: "1 Appian Way, Redmond, Washington",
@@ -23,7 +26,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 100000,
     overage_unit_cost: 0.1,
     start_date: "1/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm1_id
   )
 
   Customer.create!(
@@ -33,7 +37,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 200000,
     overage_unit_cost: 0.09,
     start_date: "2/1/2017",
-    require_csm_approval: true
+    require_csm_approval: true,
+    csm_id: csm1_id
   )
 
   Customer.create!(
@@ -43,7 +48,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 300000,
     overage_unit_cost: 0.08,
     start_date: "3/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm1_id
   )
 
   Customer.create!(
@@ -53,7 +59,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 400000,
     overage_unit_cost: 0.07,
     start_date: "4/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm1_id
   )
 
   Customer.create!(
@@ -63,7 +70,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 500000,
     overage_unit_cost: 0.06,
     start_date: "5/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm1_id
   )
 
   Customer.create!(
@@ -73,7 +81,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 600000,
     overage_unit_cost: 0.05,
     start_date: "6/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm2_id
   )
 
   Customer.create!(
@@ -83,7 +92,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 700000,
     overage_unit_cost: 0.04,
     start_date: "7/1/2017",
-    require_csm_approval: true
+    require_csm_approval: true,
+    csm_id: csm2_id
   )
 
   Customer.create!(
@@ -93,7 +103,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 800000,
     overage_unit_cost: 0.03,
     start_date: "8/1/2017",
-    require_csm_approval: true
+    require_csm_approval: true,
+    csm_id: csm2_id
   )
 
   Customer.create!(
@@ -103,7 +114,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 900000,
     overage_unit_cost: 0.02,
     start_date: "9/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm2_id
   )
 
   Customer.create!(
@@ -113,7 +125,8 @@ ActiveRecord::Base.transaction do
     monthly_api_limit: 1000000,
     overage_unit_cost: 0.01,
     start_date: "10/1/2017",
-    require_csm_approval: false
+    require_csm_approval: false,
+    csm_id: csm2_id
   )
 
 
@@ -182,10 +195,12 @@ ActiveRecord::Base.transaction do
     12.times do |j|
       Usage.create!(
         customer_id: customer_id,
-        month: j,
+        month: (j+1),
         year: 2017,
         api_usage: usage_data[i][j]
       )
     end
   end
+
+
 end

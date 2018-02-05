@@ -19,6 +19,7 @@ session_token   | string    | not null, indexed, unique
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
+csm_id    | integer | foreign key (references users), indexed
 name            | string    |
 billing_address | string    |  
 billing_email   | string    |
@@ -27,6 +28,7 @@ overage_unit_cost  | integer |
 start_date | date |
 end_date | date |
 require_csm_approval | boolean |
+
 
 ### Usage
 
@@ -43,7 +45,7 @@ api_usage       | integer   |
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-customer_ id    | integer   | not null, foreign key (references customers), indexed
+customer_id    | integer   | not null, foreign key (references customers), indexed
 month           | integer   |
 year            | integer   |
 overage_units   | integer   |
@@ -54,6 +56,17 @@ created_at  | datetime |
 updated_at  | datetime |
 
 A bill's overage_unit cost by default will be a customer's overage_unit_cost, but could be altered for flexibility. Therefore, overage_unit_cost is stored in two models.
+
+### Bill History
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+bill_id         | integer   | not null, foreign key (references bills), indexed
+stakeholder_id  | integer   | not null, foreign key (references users), indexed
+action          | string    |
+comment         | string    |
+created_at      | datetime  | not null
+updated_at      | datetime  | not null
 
 ## Routes
 
@@ -80,7 +93,8 @@ A bill's overage_unit cost by default will be a customer's overage_unit_cost, bu
 
 #### Usage
 
-* `GET /api/usage` (pass customerId, etc as parameters)
+* `GET /api/usage`
+(Pass customerId, etc as parameters. Not using this route on frontend currently.)
 
 #### Bill
 * `GET /api/bills`
@@ -98,6 +112,6 @@ A bill's overage_unit cost by default will be a customer's overage_unit_cost, bu
 
 
 ### Future Implementation
-* Error handling
+* Error handling tied to thunk actions
 * Testing
 * Customer show page with usage graph

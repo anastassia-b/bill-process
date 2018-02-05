@@ -8,6 +8,12 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
+  #want this association only if user.role = "Customer Success"
+  has_many :customers,
+    primary_key: :id,
+    foreign_key: :csm_id,
+    class_name: "Customer"
+
   def self.find_by_credentials(name, password)
     user = User.find_by(name: name)
     return nil unless user

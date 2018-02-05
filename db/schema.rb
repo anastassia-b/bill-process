@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204221411) do
+ActiveRecord::Schema.define(version: 20180205011709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180204221411) do
     t.date "start_date"
     t.date "end_date"
     t.boolean "require_csm_approval"
+    t.integer "csm_id"
   end
 
   create_table "usages", force: :cascade do |t|
