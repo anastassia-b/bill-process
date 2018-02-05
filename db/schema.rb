@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205011709) do
+ActiveRecord::Schema.define(version: 20180205021018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "month"
+    t.integer "year"
+    t.integer "overage_units"
+    t.integer "overage_unit_cost"
+    t.integer "overage_amount"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_bills_on_customer_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name", null: false

@@ -63,7 +63,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 bill_id         | integer   | not null, foreign key (references bills), indexed
 stakeholder_id  | integer   | not null, foreign key (references users), indexed
-action          | string    |
+new_status      | string    |
 comment         | string    |
 created_at      | datetime  | not null
 updated_at      | datetime  | not null

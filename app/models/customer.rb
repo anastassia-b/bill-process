@@ -5,4 +5,6 @@ class Customer < ApplicationRecord
     primary_key: :id,
     foreign_key: :csm_id,
     class_name: "User"
+
+  has_many :bills
 end
