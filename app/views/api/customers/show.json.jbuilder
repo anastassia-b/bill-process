@@ -15,3 +15,15 @@ json.usage do
     end
   end
 end
+
+json.bills do
+  @customer.bills.each do |bill|
+    json.set! bill.id do
+      json.id bill.id
+      json.month bill.month
+      json.year bill.year
+      json.overage_amount bill.overage_amount
+      json.status bill.status
+    end
+  end
+end

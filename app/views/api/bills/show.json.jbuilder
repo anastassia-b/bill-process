@@ -5,7 +5,7 @@ json.bill do
 end
 
 json.bill_actions do
-  @bill_actions.each do |action|
+  @bill.bill_actions.each do |action|
     json.set! action.id do
       json.id action.id
       json.bill_id action.bill_id
