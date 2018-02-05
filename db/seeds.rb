@@ -10,6 +10,8 @@ ActiveRecord::Base.transaction do
   User.destroy_all
   Customer.destroy_all
   Usage.destroy_all
+  Bill.destroy_all
+  BillAction.destroy_all
 
   User.create!(name: "User1", role: "Sales", password: "password")
   User.create!(name: "User2", role: "Finance", password: "password")
@@ -202,5 +204,44 @@ ActiveRecord::Base.transaction do
     end
   end
 
+  Bill.create!(
+    customer_id: Customer.first.id,
+    month: 10,
+    year: 2017,
+    overage_units: 220000,
+    overage_unit_cost: 0.01,
+    overage_amount: 2200,
+    status: "SENT"
+  )
+
+  finance_user_id = User.find_by(name: "User2").id
+  sales_user_id = User.find_by(name: "User1").id
+  csm_user_id = User.find_by(name: "User3").id
+
+  BillAction.create!(
+    bill_id: Bill.first.id,
+    stakeholder_id: finance_user_id,
+    new_status: "DRAFT"
+  )
+
+  BillAction.create!(
+    bill_id: Bill.first.id,
+    stakeholder_id: csm_user_id,
+    new_status: "APPROVE",
+    comment: "Customer Success has approved this bill."
+  )
+
+  BillAction.create!(
+    bill_id: Bill.first.id,
+    stakeholder_id: sales_user_id,
+    new_status: "APPROVE",
+    comment: "Sales has also approved this bill."
+  )
+
+  BillAction.create!(
+    bill_id: Bill.first.id,
+    stakeholder_id: finance_user_id,
+    new_status: "SENT"
+  )
 
 end

@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205021018) do
+ActiveRecord::Schema.define(version: 20180205021818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bill_actions", force: :cascade do |t|
+    t.integer "bill_id", null: false
+    t.integer "stakeholder_id", null: false
+    t.string "new_status"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_bill_actions_on_bill_id"
+    t.index ["stakeholder_id"], name: "index_bill_actions_on_stakeholder_id"
+  end
 
   create_table "bills", force: :cascade do |t|
     t.integer "customer_id", null: false

@@ -14,6 +14,8 @@ class User < ApplicationRecord
     foreign_key: :csm_id,
     class_name: "Customer"
 
+  has_many :bill_actions, inverse_of: :stakeholder
+
   def self.find_by_credentials(name, password)
     user = User.find_by(name: name)
     return nil unless user
