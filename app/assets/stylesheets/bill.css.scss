@@ -1,0 +1,66 @@
+$blue: #07386b;
+$font-blue: #1f4160;
+$font-grey: #859cb7;
+$font-blue: #1f4160;
+$background-grey: #f7f8fa;
+$border-grey: #cbd1d8;
+$green: #47b881;
+
+.bill-form-container {
+  padding: 20px;
+
+  h2 {
+    color: $font-grey;
+    font-size: 22px;
+    margin-left: 20px;
+  }
+
+  .bill-form {
+    padding: 30px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid $border-grey;
+    color: $font-blue;
+    width: 500px;
+    margin: 20px auto;
+
+
+
+    // h2 {
+    //   font-size: 20px;
+    //   color: $font-blue;
+    //   margin: 0px auto;
+    //   padding-bottom: 20px;
+    // }
+
+
+    // h3 {
+    //   color: $font-blue;
+    //   font-size: 16px;
+    // }
+
+    input {
+      border-radius: 4px;
+      border: 1px solid $border-grey;
+      padding: 10px 16px;
+      margin: 10px 0px;
+    }
+
+    select {
+      border: 1px solid $border-grey;
+      margin: 10px 0px;
+      height: 40px;
+      font-size: 14px;
+      padding: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: $green;
+      color: white;
+      padding: 10px;
+    }
+  }
+}
