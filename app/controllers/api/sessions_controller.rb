@@ -1,4 +1,6 @@
 class Api::SessionsController < ApplicationController
+  # add require logged out
+  
   def create
     @user = User.find_by_credentials(
       params[:user][:name],

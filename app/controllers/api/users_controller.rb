@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  #add require logged out
+  
   def create
     @user = User.new(user_params)
     if @user.save

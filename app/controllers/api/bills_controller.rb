@@ -1,4 +1,7 @@
 class Api::BillsController < ApplicationController
+  before_action :require_logged_in, only: [:create, :update]
+  before_action :require_finance_user, only: [:create]
+
   def index
     @bills = Bill.all
   end
@@ -8,15 +11,11 @@ class Api::BillsController < ApplicationController
   end
 
   def create
-    # calculations of the bills amount could be done/validated on the backend or front
-    # validations need to go here, that its account role is finance
-
     @bill = Bill.new(bill_params)
     @bill.status = "DRAFT"
 
     if @bill.save
-      # use params[:stakeholder_id]
-      # also create Bill Action in addition to creating a bill
+      # Log the bill action whenever the bill changes.
       @bill_action = BillAction.new(
         bill_id: @bill.id,
         stakeholder_id: params[:bill][:stakeholder_id],
@@ -35,8 +34,14 @@ class Api::BillsController < ApplicationController
     end
   end
 
+  def update
+    # find the bill from the params.
+    # update the status
+    # create the bill action
+
+  end
+
   private
-  # whitelist params
   def bill_params
     params.require(:bill).permit(
       :customer_id, :month, :year, :overage_units, :overage_unit_cost, :overage_amount

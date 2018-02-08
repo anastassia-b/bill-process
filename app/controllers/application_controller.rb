@@ -26,4 +26,14 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  def require_logged_in
+    render json: {base: ['invalid credentials']}, status: 401 if !current_user
+  end
+
+  def require_finance_user
+    if !(current_user.role == 'Finance')
+      render json: {base: ['Do not have permission']}, status: 401
+    end
+  end
+
 end
