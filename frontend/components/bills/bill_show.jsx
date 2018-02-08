@@ -24,13 +24,23 @@ class BillShow extends React.Component {
 
 
     if (this.props.currentUser.role == 'Finance') {
-      return (
-        <div className="bill-buttons-container">
-          <div className="bill-buttons">
-          <div id="pending">PENDING APPROVAL</div>
+      if (this.props.bill && this.props.bill.status == 'FINAL') {
+        return (
+          <div className="bill-buttons-container">
+            <div className="bill-buttons">
+              <div id="pending">SEND TO CUSTOMER</div>
+            </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="bill-buttons-container">
+            <div className="bill-buttons">
+              <div id="pending">PENDING APPROVAL</div>
+            </div>
+          </div>
+        );
+      }
     } else {
       return (
         <div className="bill-buttons-container">
