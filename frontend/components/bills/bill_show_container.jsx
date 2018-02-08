@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BillShow from './bill_show.jsx';
-import { fetchBill } from '../../actions/bill_actions';
+import { fetchBill, updateBill } from '../../actions/bill_actions';
 import { withRouter } from 'react-router';
 
 const selectBill = (state, id) => {
@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
   return (
     {
       bill: selectBill(state, id),
-      billActions: Object.values(state.billActions)
+      billActions: Object.values(state.billActions),
+      currentUser: state.session.currentUser
     }
     // usage: Object.values(state.usage) BILL ACTIONS
   );
@@ -20,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchBill: (id) => dispatch(fetchBill(id)),
+  updateBill: (bill) => dispatch(updateBill(bill))
 });
 
 export default withRouter(

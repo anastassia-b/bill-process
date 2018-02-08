@@ -18,6 +18,25 @@ class BillShow extends React.Component {
     }
   }
 
+  renderButtons() {
+    // need better validations here with more time.
+
+    if (this.props.currentUser.role == 'Finance') {
+      return (
+        <div className="bill-buttons-container">
+          <div id="pending">PENDING APPROVAL</div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="bill-buttons-container">
+          <button id="approve">APPROVE</button>
+          <button id="reject">REJECT</button>
+        </div>
+      );
+    }
+  }
+
   render() {
     let bill = this.props.bill;
     let billActions = this.props.billActions;
@@ -56,6 +75,7 @@ class BillShow extends React.Component {
           {billDisplay}
         <h2>History</h2>
           {actionsDisplay}
+        {this.renderButtons()}
       </div>
     );
   }

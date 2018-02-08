@@ -31,4 +31,10 @@ export const createBill = (bill) => dispatch => (
   ))
 );
 
+export const updateBill = (bill) => dispatch => (
+  APIUtil.updateBill(bill).then(actionBill => (
+    dispatch(receiveBill(actionBill))
+  ))
+);
+
 // TODO: Need to implement error handling for creating a new bill

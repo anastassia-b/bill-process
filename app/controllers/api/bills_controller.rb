@@ -35,6 +35,7 @@ class Api::BillsController < ApplicationController
   end
 
   def update
+    # debugger;
     # find the bill from the params.
     # update the status
     # create the bill action

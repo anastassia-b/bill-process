@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show] do
       resources :usages, only: [:index]
     end
-    resources :bills, only: [:index, :show, :create]
+    resources :bills, only: [:index, :show, :create, :update]
   end
 
 end

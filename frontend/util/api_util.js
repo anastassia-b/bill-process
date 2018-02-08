@@ -70,3 +70,11 @@ export const createBill = (bill) => (
       data: { bill }
   })
 );
+
+export const updateBill = (bill) => (
+  $.ajax({
+      method: 'PATCH',
+      url: `/api/bills/${bill.id}`,
+      data: { bill }
+  })
+);
