@@ -9,12 +9,14 @@ const selectCustomer = (state, id) => {
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.customerId;
-  // also fetch a customer's bills to display (need to refactor later)
+  // TODO: also fetch a customer's bills to display
+  // (need to refactor later instead of fetching all bills in left nav)
   return (
     {
       customer: selectCustomer(state, id),
       usage: Object.values(state.usage),
-      bills: Object.values(state.bills)
+      bills: Object.values(state.bills),
+      currentUser: state.session.currentUser
     }
   );
 };

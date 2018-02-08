@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { firstThreeMonths } from '../../util/calculation';
 
 class CustomerShow extends React.Component {
   constructor(props) {
     super(props);
     this.usageDisplay = this.usageDisplay.bind(this);
+    this.buttonDisplay = this.buttonDisplay.bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +25,45 @@ class CustomerShow extends React.Component {
   usageDisplay(monthlyUsage) {
     if (monthlyUsage > this.props.customer.monthly_api_limit) {
       return (
-        <li>Api Usage: <b>{monthlyUsage}</b></li>
+        <li>Api Usage: <span>{monthlyUsage}</span></li>
       );
     } else {
       return (
         <li>Api Usage: {monthlyUsage}</li>
+      );
+    }
+  }
+
+  buttonDisplay(usage) {
+    let start = this.props.customer.start_date;
+    let month = usage.month;
+    let year = usage.year;
+
+    if (firstThreeMonths(start, month, year)) {
+      return (
+        <div className="usage-actions">
+          <p>First Three Months</p>
+        </div>
+      );
+    } else if (usage.api_usage > this.props.customer.monthly_api_limit) {
+      if (this.props.currentUser.role === "Finance") {
+        return (
+          <div className="usage-actions">
+            <button>Generate Bill</button>
+          </div>
+        );
+      } else {
+        return (
+          <div className="usage-actions">
+            <button>Ask Finance to Generate</button>
+          </div>
+        );
+      }
+    } else {
+      return (
+        <div className="usage-actions">
+          <p>Under monthly limit!</p>
+        </div>
       );
     }
   }
@@ -43,7 +79,6 @@ class CustomerShow extends React.Component {
           <li>Monthly Api Limit: <b>{customer.monthly_api_limit}</b></li>
           <li>Billing Address: {customer.billing_address}</li>
           <li>Billing Email: {customer.billing_email}</li>
-          <li>Overage Unit Cost: {customer.overage_unit_cost}</li>
           <li>Start Date: {customer.start_date}</li>
         </ul>
       );
@@ -62,10 +97,13 @@ class CustomerShow extends React.Component {
     ));
 
     let usageDisplay = this.props.usage.map((usage) => (
-      <ul className="usage-item" key={usage.id}>
-        <li>Time Period: {usage.month}/{usage.year}</li>
-        {this.usageDisplay(usage.api_usage)}
-      </ul>
+      <div className="usage-item" key={usage.id}>
+        <ul className="usage-info">
+          <li>Time Period: {usage.month}/{usage.year}</li>
+          {this.usageDisplay(usage.api_usage)}
+        </ul>
+        {this.buttonDisplay(usage)}
+      </div>
     ));
 
 
