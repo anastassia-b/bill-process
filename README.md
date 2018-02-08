@@ -2,7 +2,11 @@
 
 BillProcess is a full-stack app that lets different internal stakeholders efficiently process monthly customer bills. It is built with Ruby on Rails, PostgreSQL, and React/Redux.
 
-To run this app locally:
+Live demo found here!
+http://billprocess.herokuapp.com/#/customers/5
+
+
+Alternatively, to run this app locally:
   * `git clone https://github.com/anastassia-b/bill-process.git`
   * `bundle install`
   * `npm install`
@@ -39,7 +43,7 @@ name            | string    |
 billing_address | string    |  
 billing_email   | string    |
 monthly_api_limit | integer   |
-overage_unit_cost  | integer |
+overage_unit_cost  | float |
 start_date | date |
 end_date | date |
 require_csm_approval | boolean |

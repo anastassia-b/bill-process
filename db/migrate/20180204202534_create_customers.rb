@@ -5,7 +5,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.string :billing_address
       t.string :billing_email
       t.integer :monthly_api_limit
-      t.integer :overage_unit_cost
+      t.float :overage_unit_cost
       t.date :start_date
       t.date :end_date
       t.boolean :require_csm_approval
