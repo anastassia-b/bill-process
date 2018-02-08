@@ -12,10 +12,24 @@
     margin: 20px;
     padding: 20px;
     border-radius: 4px;
+    border: 1px solid $border-grey;
 
     h3 {
       color: $font-blue;
       font-size: 16px;
     }
+  }
+
+  .customer-item:hover {
+    border: 1px solid $green;
+  }
+
+
+  .usage-item {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid $border-grey;
   }
 }

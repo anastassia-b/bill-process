@@ -71,12 +71,19 @@
     background: white;
     margin: 20px;
     padding: 20px;
-
-    h3 {
-      color: $font-blue;
-      font-size: 16px;
-    }
+    border-radius: 4px;
+    border: 1px solid $border-grey;
   }
+
+  .bill-item:hover {
+    border: 1px solid $green;
+  }
+
+  h3 {
+    color: $font-blue;
+    font-size: 16px;
+  }
+
 }
 
 
@@ -89,10 +96,20 @@
     margin-left: 20px;
   }
 
+  .customer-item {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid $border-grey;
+  }
+
   .bill-action-item {
     background: white;
     margin: 20px;
     padding: 20px;
+    border-radius: 4px;
+    border: 1px solid $border-grey;
 
     h3 {
       color: $font-blue;
