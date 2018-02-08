@@ -21,14 +21,32 @@ class BillShow extends React.Component {
   renderButtons() {
     // need better validations here with more time.
     // need to switch based on bill status and also user role.
+    if (this.props.bill && this.props.bill.status == 'WRITEOFF') {
+      return (
+        <div className="bill-buttons-container">
+          <div className="bill-buttons">
+            <div id="pending">UNDO</div>
+          </div>
+        </div>
+      );
+    }
 
+    if (this.props.bill && this.props.bill.status == 'SENT') {
+      return (
+        <div className="bill-buttons-container">
+          <div className="bill-buttons">
+            <div id="pending">NO FURTHER ACTION</div>
+          </div>
+        </div>
+      );
+    }
 
     if (this.props.currentUser.role == 'Finance') {
-      if (this.props.bill && this.props.bill.status == 'FINAL') {
+      if (this.props.bill && this.props.bill.status == 'SENT') {
         return (
           <div className="bill-buttons-container">
             <div className="bill-buttons">
-              <div id="pending">SEND TO CUSTOMER</div>
+              <div id="pending">NO FURTHER ACTION</div>
             </div>
           </div>
         );
@@ -42,6 +60,15 @@ class BillShow extends React.Component {
         );
       }
     } else {
+      if (this.props.bill && this.props.bill.status == 'FINAL') {
+        return (
+          <div className="bill-buttons-container">
+            <div className="bill-buttons">
+              <div id="pending">WAITING TO SEND</div>
+            </div>
+          </div>
+        );
+      } else {
       return (
         <div className="bill-buttons-container">
           <div className="bill-buttons">
@@ -54,6 +81,7 @@ class BillShow extends React.Component {
           </div>
         </div>
       );
+    }
     }
   }
 
