@@ -1,11 +1,3 @@
-$blue: #07386b;
-$font-blue: #1f4160;
-$font-grey: #859cb7;
-$font-blue: #1f4160;
-$background-grey: #f7f8fa;
-$border-grey: #cbd1d8;
-$green: #47b881;
-
 .bill-form-container {
   padding: 20px;
 
@@ -61,6 +53,50 @@ $green: #47b881;
       background-color: $green;
       color: white;
       padding: 10px;
+    }
+  }
+}
+
+
+.bill-index-container {
+  padding: 20px;
+
+  h2 {
+    color: $font-grey;
+    font-size: 22px;
+    margin-left: 20px;
+  }
+
+  .bill-item {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+
+    h3 {
+      color: $font-blue;
+      font-size: 16px;
+    }
+  }
+}
+
+
+.bill-show-container {
+  padding: 20px;
+
+  h2 {
+    color: $font-grey;
+    font-size: 22px;
+    margin-left: 20px;
+  }
+
+  .bill-action-item {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+
+    h3 {
+      color: $font-blue;
+      font-size: 16px;
     }
   }
 }
