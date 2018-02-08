@@ -12,8 +12,9 @@ const Dashboard = () => (
   <section className="dashboard-container">
     <LeftNavContainer />
     <div className="dashboard">
-      <FinanceRoute exact path="/dashboard" component={BillFormContainer} />
       <Route exact path="/dashboard" component={BillIndexContainer} />
+      <Route exact path="/dashboard/:status" component={BillIndexContainer} />
+      <FinanceRoute exact path="/newBill" component={BillFormContainer} />
       <Route exact path="/bills/:billId" component={BillShowContainer} />
       <Route exact path="/customers" component={CustomerIndexContainer} />
       <Route exact path="/customers/:customerId" component={CustomerShowContainer} />

@@ -7,7 +7,7 @@ const Finance = ({component: Component, path, role, exact}) => (
     (role === "Finance") ? (
       <Component {...props}/>
     ) : (
-      <div></div>
+      <Redirect to="/dashboard" />
     )
   )}/>
 );
