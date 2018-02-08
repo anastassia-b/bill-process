@@ -5,7 +5,8 @@ import { fetchBills } from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
   bills: Object.values(state.bills),
-  customers: Object.values(state.customers)
+  customers: Object.values(state.customers),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({
