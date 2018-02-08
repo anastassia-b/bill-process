@@ -17,10 +17,6 @@ class BillForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  calculateAmount() {
-
-  }
-
   update(field) {
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
@@ -32,7 +28,10 @@ class BillForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createBill(this.state);
+    this.props.createBill(this.state).then(() => (
+      this.props.history.push('/dashboard')
+    ));
+    
     this.setState({
       customer_id: '',
       month: '1',
@@ -92,12 +91,17 @@ class BillForm extends React.Component {
             value={this.state.overage_unit_cost}
             onChange={this.update('overage_unit_cost')} />
 
+          <label>Comment</label>
+          <input type="text"
+            value={this.state.comment}
+            onChange={this.update('comment')} />
+
           <label id="amount">
             <h4>Overage Amount: </h4>
             <div>${this.state.overage_amount}</div>
           </label>
 
-            <button>Create Draft Bill</button>
+          <button>Create Draft Bill</button>
         </form>
       </div>
     );
@@ -105,9 +109,3 @@ class BillForm extends React.Component {
 }
 
 export default BillForm;
-
-// OPTIONAL, WILL ADD TO NON-FINANCE USERS
-// <label>Comment</label>
-// <input type="text"
-//   value={this.state.comment}
-//   onChange={this.update('comment')} />

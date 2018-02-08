@@ -30,3 +30,5 @@ export const createBill = (bill) => dispatch => (
     dispatch(receiveBill(draftBill))
   ))
 );
+
+// TODO: Need to implement error handling for creating a new bill
