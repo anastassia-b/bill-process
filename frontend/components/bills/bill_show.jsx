@@ -40,7 +40,7 @@ class BillShow extends React.Component {
     let actionsDisplay;
     if (billActions) {
       actionsDisplay = billActions.map(action => (
-        <ul className="customer-item" key={action.id}>
+        <ul className="bill-action-item" key={action.id}>
           <li>Action: {action.action}</li>
           <li>Performed by: {action.stakeholder_name} at {action.created_at}</li>
           <li>Comment: {action.comment}</li>
@@ -51,7 +51,7 @@ class BillShow extends React.Component {
     }
 
     return (
-      <div className="customer-index-container">
+      <div className="bill-show-container">
         <h2>Bill</h2>
           {billDisplay}
         <h2>History</h2>
