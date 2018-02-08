@@ -31,8 +31,8 @@ export const createBill = (bill) => dispatch => (
   ))
 );
 
-export const updateBill = (bill) => dispatch => (
-  APIUtil.updateBill(bill).then(actionBill => (
+export const updateBill = (bill, action) => dispatch => (
+  APIUtil.updateBill(bill, action).then(actionBill => (
     dispatch(receiveBill(actionBill))
   ))
 );

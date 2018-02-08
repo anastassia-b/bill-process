@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       resources :usages, only: [:index]
     end
     resources :bills, only: [:index, :show, :create, :update]
+
   end
 
+  patch '/api/bills/:id/approve', :to => 'api/bills#approve'
+  patch '/api/bills/:id/reject', :to => 'api/bills#reject'
 end

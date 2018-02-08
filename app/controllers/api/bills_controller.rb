@@ -1,5 +1,5 @@
 class Api::BillsController < ApplicationController
-  before_action :require_logged_in, only: [:create, :update]
+  before_action :require_logged_in, only: [:create, :approve, :reject]
   before_action :require_finance_user, only: [:create]
 
   def index
@@ -18,7 +18,7 @@ class Api::BillsController < ApplicationController
       # Log the bill action whenever the bill changes.
       @bill_action = BillAction.new(
         bill_id: @bill.id,
-        stakeholder_id: params[:bill][:stakeholder_id],
+        stakeholder_id: current_user.id,
         comment: params[:bill][:comment],
         action: "DRAFT"
       )
@@ -34,12 +34,41 @@ class Api::BillsController < ApplicationController
     end
   end
 
-  def update
-    # debugger;
-    # find the bill from the params.
-    # update the status
-    # create the bill action
+  def approve
+    @bill = Bill.find_by(id: params[:id])
+    @bill.status = 'FINAL'
 
+    @bill_action = BillAction.new(
+      bill_id: @bill.id,
+      stakeholder_id: current_user.id,
+      comment: params[:bill][:comment],
+      action: "APPROVE"
+    )
+
+    if @bill.save && @bill_action.save
+      render 'api/bills/show'
+    else
+      render json: @bill.errors.full_messages, status: 422
+    end
+  end
+
+
+  def reject
+    @bill = Bill.find_by(id: params[:id])
+    @bill.status = 'WRITEOFF'
+
+    @bill_action = BillAction.new(
+      bill_id: @bill.id,
+      stakeholder_id: current_user.id,
+      comment: params[:bill][:comment],
+      action: "REJECT"
+    )
+
+    if @bill.save && @bill_action.save
+      render 'api/bills/show'
+    else
+      render json: @bill.errors.full_messages, status: 422
+    end
   end
 
   private

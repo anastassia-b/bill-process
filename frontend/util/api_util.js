@@ -71,10 +71,10 @@ export const createBill = (bill) => (
   })
 );
 
-export const updateBill = (bill) => (
+export const updateBill = (bill, action) => (
   $.ajax({
       method: 'PATCH',
-      url: `/api/bills/${bill.id}`,
+      url: `/api/bills/${bill.id}/${action}`,
       data: { bill }
   })
 );
