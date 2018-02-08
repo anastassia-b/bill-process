@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchBill: (id) => dispatch(fetchBill(id)),
-  updateBill: (bill) => dispatch(updateBill(bill))
+  updateBill: (bill, action) => dispatch(updateBill(bill, action))
 });
 
 export default withRouter(

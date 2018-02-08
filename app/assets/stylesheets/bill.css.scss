@@ -132,22 +132,44 @@
   .bill-buttons-container {
     margin: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 
-    #pending {
-      margin-top: 10px;
-      background-color: $font-grey;
-      color: white;
-      padding: 20px;
-      border-radius: 4px;
+    .bill-buttons {
+
+      #pending {
+        background-color: $font-grey;
+        color: white;
+        padding: 17px 30px;
+        border-radius: 50px;
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+      }
+
+      #approve {
+        background-color: $green;
+        color: white;
+        padding: 10px;
+        width: 200px;
+        padding: 17px 30px;
+        border-radius: 50px;
+        margin: 10px;
+        text-align: center;
+      }
+
+      #reject {
+        background-color: red;
+        color: white;
+        padding: 10px;
+        width: 200px;
+        padding: 17px 30px;
+        border-radius: 50px;
+        margin: 10px;
+        text-align: center;
+      }
+
     }
 
-    button {
-      margin-top: 10px;
-      background-color: $green;
-      color: white;
-      padding: 10px;
-    }
 
   }
 }

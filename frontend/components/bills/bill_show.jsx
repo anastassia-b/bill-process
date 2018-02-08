@@ -20,18 +20,28 @@ class BillShow extends React.Component {
 
   renderButtons() {
     // need better validations here with more time.
+    // need to switch based on bill status and also user role.
+
 
     if (this.props.currentUser.role == 'Finance') {
       return (
         <div className="bill-buttons-container">
+          <div className="bill-buttons">
           <div id="pending">PENDING APPROVAL</div>
+          </div>
         </div>
       );
     } else {
       return (
         <div className="bill-buttons-container">
-          <button id="approve">APPROVE</button>
-          <button id="reject">REJECT</button>
+          <div className="bill-buttons">
+            <button
+              onClick={() => this.props.updateBill(this.props.bill, 'reject')}
+              id="reject">REJECT</button>
+            <button
+              onClick={() => this.props.updateBill(this.props.bill, 'approve')}
+              id="approve">APPROVE</button>
+          </div>
         </div>
       );
     }

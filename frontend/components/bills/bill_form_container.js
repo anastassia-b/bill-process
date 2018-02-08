@@ -3,7 +3,6 @@ import BillForm from './bill_form';
 import { createBill } from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
-  currentUserId: state.session.currentUser.id,
   customers: Object.values(state.customers)
 });
 

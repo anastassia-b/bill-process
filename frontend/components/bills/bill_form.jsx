@@ -10,8 +10,7 @@ class BillForm extends React.Component {
       overage_units: '10000',
       overage_unit_cost: '0.1',
       overage_amount: '1000',
-      comment: '',
-      stakeholder_id: this.props.currentUserId
+      comment: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,15 +30,14 @@ class BillForm extends React.Component {
     this.props.createBill(this.state).then(() => (
       this.props.history.push('/dashboard')
     ));
-    
+
     this.setState({
       customer_id: '',
       month: '1',
       year: '2017',
       overage_units: '10000',
       overage_unit_cost: '0.1',
-      overage_amount: '1000',
-      stakeholder_id: this.props.currentUserId
+      overage_amount: '1000'
     });
   }
 
