@@ -3,8 +3,7 @@
 BillProcess is a full-stack app that lets different internal stakeholders efficiently process monthly customer bills. It is built with Ruby on Rails, PostgreSQL, and React/Redux.
 
 Live demo found here!
-http://billprocess.herokuapp.com/#/customers/5
-
+http://billprocess.herokuapp.com/
 
 Alternatively, to run this app locally:
   * `git clone https://github.com/anastassia-b/bill-process.git`
@@ -17,6 +16,8 @@ Alternatively, to run this app locally:
 ## Features
 * Complete user authentication with BCrypt gem.
 * Multiple Account types (Finance, Customer Success, Sales) allow for specialized permissions and views.
+  * Finance users can generate bills and sent them to customers.
+  * CustomerSuccess and Sales can approve and reject bills.
 * Bill tracks the history of actions on it, allowing for documentation and reversibility.
 
 ## Database Schema
@@ -119,6 +120,10 @@ updated_at      | datetime  | not null
 * `GET /api/bills`
 * `GET /api/bills/:billId`
 * `POST /api/bills/`
+* `PATCH  /api/bills/:id/approve`
+* `PATCH  /api/bills/:id/reject`
+
+Creating or updating a bill create BillActions which log the activity.
 
 ### Frontend Routes
 
@@ -128,26 +133,13 @@ updated_at      | datetime  | not null
 * `/customers` - Customer Index
 * `/customers/:id` - Customer Show Page with Usage
 
-### In Progress
-The following requires only 2-3 more hours to complete:
-
-* Finalize business logic on creating a bill (checking over 3 months, verifying overage calculations).
-* Give Finance users the permission to submit a FINAL bill.
-* Give Customer Success and Sales "APPROVE" and "REJECT" actions.
 
 ### Future Implementation
 * Error handling tied to thunk actions
 * Testing
-* Customer show page with usage graph
 
-### Time Breakdown
-As of Monday, February 5, 2018, 2:47am:
-* Fully functioning implementation in only `12 hours and 5 minutes`!
-
-![time-breakdown](/app/assets/images/time.png)
+Note: Currently an assumption is that either Sales or CustomerSuccess can approve a bill. Future implementation will ensure that a bill passes through a 2-step approval system if it needs to.
 
 ### Screenshots
 
 ![welcome](/app/assets/images/welcome.png)
-
-![dashboard](/app/assets/images/dashboard.png)
