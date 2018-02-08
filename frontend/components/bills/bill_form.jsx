@@ -4,7 +4,7 @@ class BillForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      customer_id: '',
+      customer_id: '1',
       month: '1',
       year: '2017',
       overage_units: '10000',
@@ -17,9 +17,16 @@ class BillForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  calculateAmount() {
+
+  }
+
   update(field) {
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
+      this.setState(
+        {overage_amount: (this.state.overage_units * this.state.overage_unit_cost)}
+      );
     };
   }
 
@@ -47,6 +54,7 @@ class BillForm extends React.Component {
         <form className="bill-form" onSubmit={this.handleSubmit}>
           <label>Customer Id</label>
           <input type="text"
+            placeholder="1"
             value={this.state.customer_id}
             onChange={this.update('customer_id')} />
 
@@ -74,23 +82,20 @@ class BillForm extends React.Component {
 
           <label>Overage Units</label>
           <input type="text"
+            placeholder="10000"
             value={this.state.overage_units}
             onChange={this.update('overage_units')} />
 
           <label>Overage Unit Cost</label>
           <input type="text"
+            placeholder="0.1"
             value={this.state.overage_unit_cost}
             onChange={this.update('overage_unit_cost')} />
 
-          <label>Overage Amount</label>
-            <input type="text" id="amount"
-              value={this.state.overage_amount}
-              onChange={this.update('overage_amount')} />
-
-            <label>Comment</label>
-            <input type="text"
-              value={this.state.comment}
-              onChange={this.update('comment')} />
+          <label id="amount">
+            <h4>Overage Amount: </h4>
+            <div>${this.state.overage_amount}</div>
+          </label>
 
             <button>Create Draft Bill</button>
         </form>
@@ -100,3 +105,9 @@ class BillForm extends React.Component {
 }
 
 export default BillForm;
+
+// OPTIONAL, WILL ADD TO NON-FINANCE USERS
+// <label>Comment</label>
+// <input type="text"
+//   value={this.state.comment}
+//   onChange={this.update('comment')} />

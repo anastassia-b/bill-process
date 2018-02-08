@@ -49,7 +49,7 @@ class CustomerShow extends React.Component {
       if (this.props.currentUser.role === "Finance") {
         return (
           <div className="usage-actions">
-            <button>Generate Bill</button>
+            <Link to="/newBill"><button>Generate Bill</button></Link>
           </div>
         );
       } else {
@@ -77,6 +77,7 @@ class CustomerShow extends React.Component {
         <ul className="customer-item" key={customer.id}>
           <li><h3>{customer.name}</h3></li>
           <li>Monthly Api Limit: <b>{customer.monthly_api_limit}</b></li>
+          <li>Overage Unit Cost: {customer.overage_unit_cost}</li>
           <li>Billing Address: {customer.billing_address}</li>
           <li>Billing Email: {customer.billing_email}</li>
           <li>Start Date: {customer.start_date}</li>

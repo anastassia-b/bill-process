@@ -21,7 +21,17 @@
     margin: 20px auto;
 
 
+    #amount {
+      margin: 20px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
+      div {
+        // font-weight: bold;
+        font-size: 32px;
+      }
+    }
     // h2 {
     //   font-size: 20px;
     //   color: $font-blue;
