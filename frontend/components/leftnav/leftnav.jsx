@@ -24,7 +24,7 @@ class LeftNav extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     let bills = this.props.bills;
     let customers = this.props.customers;
 
