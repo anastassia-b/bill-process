@@ -1,4 +1,5 @@
 import React from 'react';
+// import { colors } from 'evergreen-ui';
 
 class Test extends React.Component {
     constructor(props) {
@@ -9,15 +10,21 @@ class Test extends React.Component {
         // console.log(this.props);
         return (
         <div className="welcome">
-            <div className="session-container">
-            <h1>Testing heading</h1>
-            <div className="session">
-                <p>Inside text component</p>
-            </div>
-            </div>
+            Welcome
+            
         </div>
         );
     }
 }
 
 export default Test;
+
+
+{/* <div className="welcome">
+<div className="session-container">
+<h1>Testing heading</h1>
+<div className="session">
+    <p>Inside text component</p>
+</div>
+</div>
+</div> */}
