@@ -6,12 +6,16 @@ import SessionContainer from './session/session_container';
 import NavBarContainer from './navbar/container';
 import Dashboard from './dashboard';
 
+import TestComponent from './test.jsx';
+
 const App = () => (
   <main>
-    <AuthRoute path="/welcome" component={SessionContainer} />
-    <ProtectedRoute path="/" component={NavBarContainer} />
-    <ProtectedRoute path="/" component={Dashboard} />
+    <TestComponent />
   </main>
 );
 
 export default App;
+
+{/* <AuthRoute path="/welcome" component={SessionContainer} />
+<ProtectedRoute path="/" component={NavBarContainer} />
+<ProtectedRoute path="/" component={Dashboard} /> */}
