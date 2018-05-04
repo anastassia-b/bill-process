@@ -2,8 +2,9 @@ Types::QueryType = GraphQL::ObjectType.define do
   name "Query"
 
   field :customers, !types[Types::CustomerType] do
+    argument :limit, types.Int, default_value: 5, prepare: -> (limit) { [limit, 10].min }
     resolve -> (obj, args, ctx) {
-      Customer.all
+      Customer.limit(args[:limit]).order(id: :desc)
     }
   end
 
