@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 gem "figaro"
 gem 'graphql'
+gem 'json_web_token'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
