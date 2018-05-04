@@ -4,6 +4,7 @@ Types::CustomerType = GraphQL::ObjectType.define do
     field :name, !types.String
     field :billing_address, types.String
     field :bills, types[Types::BillType]
+    field :usage, types[Types::UsageType]
 end
   
 # query_string = 
