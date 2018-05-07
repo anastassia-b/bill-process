@@ -6,7 +6,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
-  before_validation :ensure_session_token_uniqueness
+  # before_validation :ensure_session_token_uniqueness
 
   #want this association only if user.role = "Customer Success"
   has_many :customers,
@@ -31,6 +31,12 @@ class User < ApplicationRecord
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def okta_session_token!(new_token)
+    self.session_token = new_token
+    self.save
+    self.session_token
+  end
+
   def reset_session_token!
     self.session_token = new_session_token
     self.save
@@ -47,9 +53,9 @@ class User < ApplicationRecord
     self.session_token ||= new_session_token
   end
 
-  def ensure_session_token_uniqueness
-    while User.find_by(session_token: self.session_token)
-      self.session_token = new_session_token
-    end
-  end
+  # def ensure_session_token_uniqueness
+  #   while User.find_by(session_token: self.session_token)
+  #     self.session_token = new_session_token
+  #   end
+  # end
 end
