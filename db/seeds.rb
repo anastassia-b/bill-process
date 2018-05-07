@@ -17,6 +17,7 @@ ActiveRecord::Base.transaction do
   User.create!(name: "User2", role: "Finance", password: "password")
   User.create!(name: "User3", role: "CustomerSuccess", password: "password")
   User.create!(name: "User4", role: "CustomerSuccess", password: "password")
+  User.create!(name: "email.anastassia@gmail.com", role: "Finance", password: "password")
 
   csm1_id = User.find_by(name: "User3").id
   csm2_id = User.find_by(name: "User4").id
