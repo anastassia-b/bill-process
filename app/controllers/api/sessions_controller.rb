@@ -11,6 +11,8 @@ class Api::SessionsController < ApplicationController
       token = params[:user][:token]
       if token 
         login(@user, params[:user][:token])
+        ExampleMailer.sample_email(@user).deliver
+
         render "api/users/show"
       else 
         render json: ["No session token provided"], status: 401
